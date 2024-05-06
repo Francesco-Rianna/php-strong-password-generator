@@ -3,6 +3,25 @@ Creare un form che invii in GET la lunghezza della password. Una nostra funzione
 Scriviamo tutto (logica e layout) in un unico file index.php
 Milestone 2
 Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale -->
+<?php
+// Funzione per generare una password casuale
+function generate_random_password($length) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~';
+    $chars_length = strlen($chars);
+    $password = '';
+ // Genera la password casuale
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[rand(0, $chars_length - 1)];
+    }
+    return $password;
+}
+
+// Verifica se il form è stato inviato
+if(isset($_GET['password'])) {
+    $password_length = $_GET['password'];
+    $generated_password = generate_random_password($password_length);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

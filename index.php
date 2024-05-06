@@ -44,7 +44,15 @@ if(isset($_GET['password'])) {
          
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-    </div>
+   </div>
+
+   <?php if(isset($generated_password)) { ?>
+        <div class="mt-3">
+            <h3>Password Generata:</h3>
+            <p><?php echo $generated_password; ?></p>
+        </div>
+   <?php } ?>
+
 
 
 </body>
